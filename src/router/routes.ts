@@ -75,9 +75,15 @@ export const asyncRoutes = [
     component: () => import('@/layout/index.vue'),
     children: [
       {
+        path: '/exception/403',
+        name: 'HTTPERROR',
+        meta: { title: '403', hidden: false },
+        component: () => import('@/views/result/403/index.vue'),
+      },
+      {
         path: '/exception/404',
         name: 'NotFound',
-        meta: { title: '400', hidden: false },
+        meta: { title: '404', hidden: false },
         component: () => import('@/views/result/404/index.vue'),
       },
       {

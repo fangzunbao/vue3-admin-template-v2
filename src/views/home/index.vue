@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
-    <a-card :bordered="false">Card content</a-card>
-  </div>
+  <a-card :bordered="false">Card content</a-card>
 </template>
 
 <script lang="ts">
@@ -11,11 +9,14 @@ export default {
 </script>
 <script setup lang="ts"></script>
 <style scoped lang="less">
-.home {
-  height: 100%;
-  background-color: pink;
-  .arco-card {
-    height: 100%;
+.arco-card {
+  margin: 20px 0;
+  height: calc(100% - 50px);
+  :deep(.arco-card-body) {
+    height: calc(100% - 32px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

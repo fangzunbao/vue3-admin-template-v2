@@ -1,6 +1,6 @@
 <template>
   <a-card :bordered="false">
-    <a-result status="403" subtitle="抱歉，服务器出了点问题～">
+    <a-result status="403" subtitle="对不起，您没有访问该资源的权限">
       <template #extra>
         <a-space>
           <a-button type="primary">返回</a-button>
@@ -12,7 +12,7 @@
 
 <script lang="ts">
 export default {
-  name: 'ServerError',
+  name: 'HTTPERROR',
 }
 </script>
 <script setup lang="ts"></script>
