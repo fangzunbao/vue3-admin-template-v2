@@ -69,6 +69,26 @@ export const asyncRoutes = [
     ],
   },
   {
+    path: '/result',
+    name: 'Result',
+    meta: { title: '结果页', hidden: false, icon: 'icon-check-square' },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: '/result/success',
+        name: 'Success',
+        meta: { title: '成功页面', hidden: false },
+        component: () => import('@/views/result/success/index.vue'),
+      },
+      {
+        path: '/result/error',
+        name: 'Error',
+        meta: { title: '错误页面', hidden: false },
+        component: () => import('@/views/result/error/index.vue'),
+      },
+    ],
+  },
+  {
     path: '/exception',
     name: 'Exception',
     meta: { title: '异常页', hidden: false, icon: 'icon-aim' },
@@ -76,21 +96,21 @@ export const asyncRoutes = [
     children: [
       {
         path: '/exception/403',
-        name: 'HTTPERROR',
+        name: 'HttpError',
         meta: { title: '403', hidden: false },
-        component: () => import('@/views/result/403/index.vue'),
+        component: () => import('@/views/exception/403/index.vue'),
       },
       {
         path: '/exception/404',
         name: 'NotFound',
         meta: { title: '404', hidden: false },
-        component: () => import('@/views/result/404/index.vue'),
+        component: () => import('@/views/exception/404/index.vue'),
       },
       {
         path: '/exception/500',
         name: 'ServerError',
         meta: { title: '500', hidden: false },
-        component: () => import('@/views/result/500/index.vue'),
+        component: () => import('@/views/exception/500/index.vue'),
       },
     ],
   },
