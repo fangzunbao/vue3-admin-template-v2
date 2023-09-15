@@ -14,7 +14,7 @@ export default {
 .home {
   height: 100%;
   background-color: pink;
-  .arco-card{
+  .arco-card {
     height: 100%;
   }
 }

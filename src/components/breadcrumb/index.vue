@@ -2,7 +2,7 @@
   <div class="breadcrumb" v-if="!home">
     <a-breadcrumb>
       <a-breadcrumb-item>
-        <icon-apps  />
+        <icon-apps style="color: rgb(var(--gray-6))" />
       </a-breadcrumb-item>
       <template v-for="item in route.matched" :key="item.path">
         <a-breadcrumb-item v-if="!!item.meta.title">

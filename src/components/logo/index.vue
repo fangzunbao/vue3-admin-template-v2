@@ -3,7 +3,7 @@
     <a-space>
       <img class="logo-img" src="@/assets/logo.svg" alt="Logo" />
       <div class="logo-title">Vue3 Admin V2</div>
-      <icon-menu-unfold v-if="false" style="font-size: 18px;" />
+      <icon-menu-unfold v-if="false" style="font-size: 18px" />
     </a-space>
   </div>
 </template>

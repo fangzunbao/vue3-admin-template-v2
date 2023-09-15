@@ -18,7 +18,6 @@ vue3-admin-template-v2 是一个基于 vue3 + vite + typescript + arco design �
 - 动态进度条
 - 动态标题
 
-
 ## 克隆项目
 
 ```bash

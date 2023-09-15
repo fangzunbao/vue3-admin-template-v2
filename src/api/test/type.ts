@@ -24,6 +24,6 @@ export interface userToken {
   token: string
 }
 
-export interface CheckUser<T>{
+export interface CheckUser<T> {
   checkUser: T
 }

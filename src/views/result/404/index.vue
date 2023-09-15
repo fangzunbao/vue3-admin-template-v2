@@ -4,9 +4,8 @@
 
 <script lang="ts">
 export default {
- name : "NotFound"
+  name: 'NotFound',
 }
-
 </script>
-<script setup lang="ts"> </script>
+<script setup lang="ts"></script>
 <style scoped lang="less"></style>

@@ -19,11 +19,11 @@ const useAppStore = defineStore('app', {
     // 切换暗黑/亮色模式
     toggleTheme(dark: boolean) {
       if (dark) {
-        this.theme = 'dark';
-        document.body.setAttribute('arco-theme', 'dark');
+        this.theme = 'dark'
+        document.body.setAttribute('arco-theme', 'dark')
       } else {
-        this.theme = 'light';
-        document.body.removeAttribute('arco-theme');
+        this.theme = 'light'
+        document.body.removeAttribute('arco-theme')
       }
     },
   },

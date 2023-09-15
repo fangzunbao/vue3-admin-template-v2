@@ -29,6 +29,7 @@
         :style="{
           paddingTop: '60px',
           paddingLeft: collapsed ? '48px' : '200px',
+          background: theme === 'light' ? '#f0f1f3' : '#3a3a3c',
         }"
         class="layout-content"
       >
@@ -61,6 +62,7 @@ const appStore = useAppStore()
 const route = useRoute()
 
 const collapsed = computed(() => appStore.collapsed)
+const theme = computed(() => appStore.theme)
 const menuList = computed(() => userStore.routes)
 const defaultSelectedKey = computed(() => [route.path])
 const defaultOpenKeys = computed(() => [
@@ -108,8 +110,8 @@ const defaultOpenKeys = computed(() => [
   }
   &-content {
     overflow-y: hidden;
-    background-color: var(--color-fill-2);
-    transition: padding .2s cubic-bezier(.34,.69,.1,1);
+    // background-color: var(--color-fill-2);
+    transition: padding 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
   }
 }
 </style>

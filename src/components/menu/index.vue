@@ -75,7 +75,7 @@ defineProps({
 
 //  切换菜单路由
 const toggleMenuItem = (item: RouteRecordRaw) => {
-  router.push({ path: item.path})
+  router.push({ path: item.path })
 }
 </script>
 <style scoped lang="less"></style>
