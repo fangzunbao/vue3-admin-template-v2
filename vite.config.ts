@@ -37,14 +37,14 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
         },
       },
     },
-    server: {
-      proxy: {
-        [env.VITE_APP_BASE_API]: {
-          target: env.VITE_BASE_SERVE,
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
-        },
-      },
-    },
+    // server: {
+    //   proxy: {
+    //     [env.VITE_APP_BASE_API]: {
+    //       target: env.VITE_BASE_SERVE,
+    //       changeOrigin: true,
+    //       rewrite: (path) => path.replace(/^\/api/, ''),
+    //     },
+    //   },
+    // },
   }
 }

@@ -27,3 +27,24 @@ export interface userToken {
 export interface CheckUser<T> {
   checkUser: T
 }
+
+export interface PolicyRecord {
+  id: string
+  number: number
+  name: string
+  contentType: 'img' | 'horizontalVideo' | 'verticalVideo'
+  filterType: 'artificial' | 'rules'
+  count: number
+  status: 'online' | 'offline'
+  createdTime: string
+}
+
+export interface PolicyParams extends Partial<PolicyRecord> {
+  current: number
+  pageSize: number
+}
+
+export interface PolicyListRes {
+  list: PolicyRecord[]
+  total: number
+}

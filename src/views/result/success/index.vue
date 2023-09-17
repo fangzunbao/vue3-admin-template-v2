@@ -67,8 +67,6 @@ const data = ref([
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .operation-wrap {
-  }
   .steps-wrapper {
     box-sizing: border-box;
     width: 80%;
