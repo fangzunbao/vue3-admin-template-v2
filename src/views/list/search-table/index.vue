@@ -62,13 +62,13 @@
         <a-divider style="height: 84px" direction="vertical" />
         <a-col :flex="'86px'" style="text-align: right">
           <a-space direction="vertical" :size="18">
-            <a-button type="primary">
+            <a-button type="primary" @click="search">
               <template #icon>
                 <icon-search />
               </template>
               搜索
             </a-button>
-            <a-button>
+            <a-button @click="reset">
               <template #icon>
                 <icon-refresh />
               </template>
@@ -167,7 +167,9 @@
         :data="renderData"
         :bordered="false"
         :size="size"
+        :draggable="{ type: 'handle', width: 40 }"
         @page-change="onPageChange"
+        @change="handleTableChange"
       >
         <template #index="{ rowIndex }">
           {{ rowIndex + 1 + (pagination.current - 1) * pagination.pageSize }}
@@ -395,6 +397,9 @@ const getProjectList = async (
   }
 }
 
+/**
+ * 搜索&刷新按钮点击
+ */
 const search = () => {
   getProjectList({
     ...basePagination,
@@ -402,6 +407,19 @@ const search = () => {
   } as unknown as PolicyParams)
 }
 
+/**
+ * 搜索条件重置
+ */
+const reset = () => {
+  formModel.value = generateFormModel()
+}
+
+/**
+ * 表格列筛选
+ * @param checked 是否选中
+ * @param column 列信息
+ * @param index 索引号
+ */
 const handleChange = (
   checked: boolean | (string | boolean | number)[],
   column: Column,
@@ -416,6 +434,13 @@ const handleChange = (
   }
 }
 
+/**
+ * 列数据拖动后，数组重新排序
+ * @param array 列数据
+ * @param beforeIdx 移动前的索引
+ * @param newIdx 移动后的索引
+ * @param isDeep 是否深拷贝
+ */
 const exchangeArray = <T extends Array<any>>(
   array: T,
   beforeIdx: number,
@@ -434,6 +459,9 @@ const exchangeArray = <T extends Array<any>>(
   return newArray
 }
 
+/**
+ * 列配置的显示框改变
+ */
 const popupVisibleChange = (val: boolean) => {
   if (val) {
     nextTick(() => {
@@ -449,6 +477,11 @@ const popupVisibleChange = (val: boolean) => {
   }
 }
 
+/**
+ * 控制表格的大小
+ * @param val 表格大小值
+ * @param e 事件
+ */
 const handleSelectDensity = (
   val: string | number | Record<string, any> | undefined,
   e: Event,
@@ -462,6 +495,14 @@ const handleSelectDensity = (
  */
 const onPageChange = (current: number) => {
   getProjectList({ ...basePagination, current })
+}
+
+/**
+ *  拖拽后更新表格数据
+ * @param _data 拖拽后的数据
+ */
+const handleTableChange = (_data: PolicyRecord[]) => {
+  renderData.value = _data
 }
 
 getProjectList()
