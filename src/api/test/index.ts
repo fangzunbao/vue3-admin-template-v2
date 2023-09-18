@@ -19,6 +19,7 @@ enum API {
   USERINFO_URL = '/mock-api/user/info',
   LOGOUT_URL = '/mock-api/user/logout',
   PROJECT_LIST = '/mock-api/project/list',
+  FORM_CREATE = '/mock-api/form/create',
 }
 
 //登录接口
@@ -35,3 +36,7 @@ export const reqLogout = () => request.post<any, any>(API.LOGOUT_URL)
 // 获取项目列表
 export const reqProjectList = (params: any): Promise<Result<PolicyListRes>> =>
   request.get(`${API.PROJECT_LIST}?${qs.stringify(params)}`)
+
+// 分步表单提交
+export const reqFormCreate = (data: any): Promise<Result<any>> =>
+  request.post(API.FORM_CREATE, data)
