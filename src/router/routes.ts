@@ -49,6 +49,26 @@ export const asyncRoutes = [
     ],
   },
   {
+    path: '/form',
+    name: 'Form',
+    meta: { title: '表单页', hidden: false, icon: 'icon-golden-fill' },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: '/form/step',
+        name: 'Step',
+        meta: { title: '分步表单', hidden: false },
+        component: () => import('@/views/form/step/index.vue'),
+      },
+      {
+        path: '/form/group',
+        name: 'Group',
+        meta: { title: '分组表单', hidden: false },
+        component: () => import('@/views/form/group/index.vue'),
+      },
+    ],
+  },
+  {
     path: '/user',
     name: 'User',
     meta: { title: '个人中心', hidden: false, icon: 'icon-user' },
