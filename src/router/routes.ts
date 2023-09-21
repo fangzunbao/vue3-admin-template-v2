@@ -23,7 +23,7 @@ export const defaultRoutes = [
     path: '/:pathmatch(.*)*',
     name: 'NotFound',
     meta: { title: 'Not Found', hidden: true },
-    component: () => import('@/views/result/404/index.vue'),
+    component: () => import('@/views/exception/404/index.vue'),
   },
 ]
 
@@ -146,6 +146,12 @@ export const asyncRoutes = [
         name: 'Draggable',
         meta: { title: '拖拽组件', hidden: false },
         component: () => import('@/views/components/draggable/index.vue'),
+      },
+      {
+        path: '/component/waterfall',
+        name: 'Waterfall',
+        meta: { title: '瀑布流组件', hidden: false },
+        component: () => import('@/views/components/waterfall/index.vue'),
       },
     ],
   },

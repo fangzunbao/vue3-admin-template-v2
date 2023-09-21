@@ -14,8 +14,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, PropType } from 'vue'
-import type { DraggableData } from '@/types/glable'
+import { ref } from 'vue'
+import type { PropType } from 'vue'
+import type { DraggableData } from '@/types/global'
 
 defineProps({
   data: {

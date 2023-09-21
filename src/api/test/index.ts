@@ -20,6 +20,7 @@ enum API {
   LOGOUT_URL = '/mock-api/user/logout',
   PROJECT_LIST = '/mock-api/project/list',
   FORM_CREATE = '/mock-api/form/create',
+  WATERFALL_LIST = '/mock-api/images/list',
 }
 
 //登录接口
@@ -40,3 +41,7 @@ export const reqProjectList = (params: any): Promise<Result<PolicyListRes>> =>
 // 分步表单提交
 export const reqFormCreate = (data: any): Promise<Result<any>> =>
   request.post(API.FORM_CREATE, data)
+
+// 瀑布流图片获取
+export const reqWaterfallList = (params: any): Promise<Result<any>> =>
+  request.get(`${API.WATERFALL_LIST}?${qs.stringify(params)}`)
