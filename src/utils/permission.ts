@@ -19,8 +19,13 @@ router.beforeEach(async (to, from, next) => {
       if (username) {
         next()
       } else {
-        await userStore.getUserInfo()
-        next()
+        try {
+          await userStore.getUserInfo()
+          next()
+        } catch (error) {
+          userStore.logout()
+          next({ path: '/login', query: { redirect: to.path } })
+        }
       }
     }
   } else {

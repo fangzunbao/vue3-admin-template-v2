@@ -134,4 +134,19 @@ export const asyncRoutes = [
       },
     ],
   },
+  {
+    path: '/component',
+    name: 'Component',
+    redirect: '/component/draggbale',
+    meta: { title: '常用组件', hidden: false, icon: 'icon-aim' },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: '/component/draggbale',
+        name: 'Draggable',
+        meta: { title: '拖拽组件', hidden: false },
+        component: () => import('@/views/components/draggable/index.vue'),
+      },
+    ],
+  },
 ]
