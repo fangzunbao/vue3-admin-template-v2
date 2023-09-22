@@ -194,6 +194,12 @@ export const asyncRoutes = [
         meta: { title: '地图组件', hidden: false, breadcrumb: false },
         component: () => import('@/views/components/map/index.vue'),
       },
+      {
+        path: '/component/range',
+        name: 'Range',
+        meta: { title: '范围选择组件', hidden: false, breadcrumb: true },
+        component: () => import('@/views/components/range/index.vue'),
+      },
     ],
   },
 ]
