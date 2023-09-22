@@ -204,8 +204,8 @@ const onSubmitClick = async () => {
 </script>
 <style scoped lang="less">
 .container {
-  padding-bottom: 80px;
   overflow: hidden;
+  padding: 0 20px 80px 20px;
 }
 .actions {
   box-sizing: border-box;

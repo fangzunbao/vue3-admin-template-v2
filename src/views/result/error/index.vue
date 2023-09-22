@@ -58,6 +58,7 @@ const data = ref([
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0 20px;
 
   .error-wrapper {
     box-sizing: border-box;

@@ -87,6 +87,9 @@ const changeStep = (
 }
 </script>
 <style scoped lang="less">
+.container {
+  padding: 0 20px;
+}
 .wrapper {
   display: flex;
   flex-direction: column;

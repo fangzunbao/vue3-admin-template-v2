@@ -34,7 +34,7 @@ watch(
 .main {
   box-sizing: border-box;
   height: 100%;
-  padding: 0 20px;
+  // padding: 0 20px;
 }
 
 .fade-enter-from {

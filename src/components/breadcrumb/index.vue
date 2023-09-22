@@ -1,5 +1,5 @@
 <template>
-  <div class="breadcrumb" v-if="!home">
+  <div class="breadcrumb" v-if="show">
     <a-breadcrumb>
       <a-breadcrumb-item>
         <icon-apps style="color: rgb(var(--gray-6))" />
@@ -18,7 +18,8 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const home = computed(() => route.matched[0].path === '/')
+// const home = computed(() => route.matched[0].path === '/')
+const show = computed(() => route.matched.every((item) => item.meta.breadcrumb))
 </script>
 <style scoped lang="less">
 .breadcrumb {

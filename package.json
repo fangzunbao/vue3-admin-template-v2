@@ -22,6 +22,7 @@
     "preinstall": "node ./scripts/preinstall.js"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@vueuse/core": "^10.4.1",
     "axios": "^1.5.0",
     "lodash": "^4.17.21",

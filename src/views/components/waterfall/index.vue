@@ -71,7 +71,7 @@ const dataList = ref<Image[]>([
 </script>
 <style scoped lang="less">
 .container {
-  padding: 10px;
+  margin: 0 20px 20px 20px;
   border-radius: 6px;
   background-color: #fff;
 }

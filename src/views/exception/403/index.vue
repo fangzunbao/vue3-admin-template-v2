@@ -19,6 +19,7 @@ export default {
 <style scoped lang="less">
 .arco-card {
   height: calc(100% - 84px);
+  margin: 0 20px;
   :deep(.arco-card-body) {
     height: calc(100% - 32px);
     display: flex;

@@ -24,6 +24,9 @@ const data = ref([
 ])
 </script>
 <style scoped lang="less">
+.container {
+  padding: 0 20px;
+}
 .arco-card {
   padding: 10px;
   border-radius: 6px;

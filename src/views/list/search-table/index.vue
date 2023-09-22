@@ -521,6 +521,9 @@ watch(
 </script>
 
 <style scoped lang="less">
+.container {
+  padding: 0 20px;
+}
 :deep(.arco-table-th) {
   &:last-child {
     .arco-table-th-item-title {
