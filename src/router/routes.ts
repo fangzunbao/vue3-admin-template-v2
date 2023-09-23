@@ -171,7 +171,7 @@ export const asyncRoutes = [
     meta: {
       title: '常用组件',
       hidden: false,
-      icon: 'icon-aim',
+      icon: 'icon-group',
       breadcrumb: true,
     },
     component: () => import('@/layout/index.vue'),
@@ -199,6 +199,32 @@ export const asyncRoutes = [
         name: 'Range',
         meta: { title: '范围选择组件', hidden: false, breadcrumb: true },
         component: () => import('@/views/components/range/index.vue'),
+      },
+    ],
+  },
+  {
+    path: '/feature',
+    name: 'Feature',
+    redirect: '/feature/barcode',
+    meta: {
+      title: '常用功能',
+      hidden: false,
+      icon: 'icon-database-fill',
+      breadcrumb: true,
+    },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: '/feature/barcode',
+        name: 'Barcode',
+        meta: { title: '条形码', hidden: false, breadcrumb: true },
+        component: () => import('@/views/feature/barcode/index.vue'),
+      },
+      {
+        path: '/feature/qrcode',
+        name: 'Qrcode',
+        meta: { title: '二维码', hidden: false, breadcrumb: true },
+        component: () => import('@/views/feature/qrcode/index.vue'),
       },
     ],
   },

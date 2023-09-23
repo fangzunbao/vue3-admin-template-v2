@@ -14,6 +14,9 @@ dependencies:
   axios:
     specifier: ^1.5.0
     version: registry.npmmirror.com/axios@1.5.0
+  jsbarcode:
+    specifier: ^3.11.5
+    version: registry.npmmirror.com/jsbarcode@3.11.5
   lodash:
     specifier: ^4.17.21
     version: registry.npmmirror.com/lodash@4.17.21
@@ -4988,6 +4991,13 @@ packages:
     dependencies:
       argparse: registry.npmmirror.com/argparse@2.0.1
     dev: true
+
+  registry.npmmirror.com/jsbarcode@3.11.5:
+    resolution: {integrity: sha512-zv3KsH51zD00I/LrFzFSM6dst7rDn0vIMzaiZFL7qusTjPZiPtxg3zxetp0RR7obmjTw4f6NyGgbdkBCgZUIrA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/jsbarcode/-/jsbarcode-3.11.5.tgz}
+    name: jsbarcode
+    version: 3.11.5
+    hasBin: true
+    dev: false
 
   registry.npmmirror.com/jsdom@22.1.0:
     resolution: {integrity: sha512-/9AVW7xNbsBv6GfWho4TTNjEo9fe6Zhf9O7s0Fhhr3u+awPwAJMKwAMXnkk5vBxflqLW9hTHX/0cs+P3gW+cQw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/jsdom/-/jsdom-22.1.0.tgz}
