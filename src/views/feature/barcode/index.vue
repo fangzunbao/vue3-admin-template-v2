@@ -13,7 +13,11 @@
           :style="{ marginBottom: '20px' }"
         >
           <a-card hoverable>
-            <canvas id="code128-barcode"></canvas>
+            <ThBarcode
+              id="barcode-1"
+              text="CODE128"
+              :options="{ format: 'CODE128', background: '#ccffff' }"
+            />
           </a-card>
         </a-col>
         <a-col
@@ -27,7 +31,11 @@
           :style="{ marginBottom: '20px' }"
         >
           <a-card hoverable>
-            <canvas id="code39-barcode"></canvas>
+            <ThBarcode
+              id="barcode-2"
+              text="CODE39"
+              :options="{ format: 'CODE39', lineColor: '#990000' }"
+            />
           </a-card>
         </a-col>
         <a-col
@@ -41,7 +49,11 @@
           :style="{ marginBottom: '20px' }"
         >
           <a-card hoverable>
-            <canvas id="EAN13-barcode"></canvas>
+            <ThBarcode
+              id="barcode-3"
+              text="123456789012"
+              :options="{ format: 'EAN13' }"
+            />
           </a-card>
         </a-col>
         <a-col
@@ -55,7 +67,18 @@
           :style="{ marginBottom: '20px' }"
         >
           <a-card hoverable>
-            <canvas id="other-barcode"></canvas>
+            <ThBarcode
+              id="barcode-4"
+              text="Barcode"
+              :options="{
+                fontSize: 16,
+                textMargin: 5,
+                textPosition: 'top',
+                textAlign: 'left',
+                font: 'fantasy',
+                fontOptions: 'bold italic',
+              }"
+            />
           </a-card>
         </a-col>
       </a-row>
@@ -69,30 +92,7 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import { nextTick } from 'vue'
-import JsBarcode from 'jsbarcode'
-
-nextTick(() => {
-  JsBarcode('#code128-barcode', 'CODE128', {
-    format: 'CODE128',
-    background: '#ccffff',
-  })
-  JsBarcode('#code39-barcode', 'CODE39', {
-    format: 'CODE128',
-    lineColor: '#990000',
-  })
-  JsBarcode('#EAN13-barcode', '123456789012', {
-    format: 'EAN13',
-  })
-  JsBarcode('#other-barcode', 'Barcode', {
-    fontSize: 16,
-    textMargin: 5,
-    textPosition: 'top',
-    textAlign: 'left',
-    font: 'fantasy',
-    fontOptions: 'bold italic',
-  })
-})
+import ThBarcode from '@/components/ThBarcode/index'
 </script>
 <style scoped lang="less">
 .container {
