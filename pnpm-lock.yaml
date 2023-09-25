@@ -76,6 +76,9 @@ devDependencies:
   '@types/nprogress':
     specifier: ^0.2.0
     version: registry.npmmirror.com/@types/nprogress@0.2.0
+  '@types/qrcode':
+    specifier: ^1.5.2
+    version: registry.npmmirror.com/@types/qrcode@1.5.2
   '@types/sortablejs':
     specifier: ^1.15.2
     version: registry.npmmirror.com/@types/sortablejs@1.15.2
@@ -1567,12 +1570,20 @@ packages:
     version: 0.2.0
     dev: true
 
+  registry.npmmirror.com/@types/qrcode@1.5.2:
+    resolution: {integrity: sha512-W4KDz75m7rJjFbyCctzCtRzZUj+PrUHV+YjqDp50sSRezTbrtEAIq2iTzC6lISARl3qw+8IlcCyljdcVJE0Wug==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/qrcode/-/qrcode-1.5.2.tgz}
+    name: '@types/qrcode'
+    version: 1.5.2
+    dependencies:
+      '@types/node': registry.npmmirror.com/@types/node@18.17.15
+    dev: true
+
   registry.npmmirror.com/@types/resolve@1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/resolve/-/resolve-1.17.1.tgz}
     name: '@types/resolve'
     version: 1.17.1
     dependencies:
-      '@types/node': registry.npmmirror.com/@types/node@18.17.5
+      '@types/node': registry.npmmirror.com/@types/node@18.17.15
     dev: true
 
   registry.npmmirror.com/@types/semver@7.5.1:

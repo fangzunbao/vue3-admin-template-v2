@@ -14,7 +14,6 @@
         >
           <a-card hoverable>
             <ThBarcode
-              id="barcode-1"
               text="CODE128"
               :options="{ format: 'CODE128', background: '#ccffff' }"
             />
@@ -32,7 +31,6 @@
         >
           <a-card hoverable>
             <ThBarcode
-              id="barcode-2"
               text="CODE39"
               :options="{ format: 'CODE39', lineColor: '#990000' }"
             />
@@ -49,11 +47,7 @@
           :style="{ marginBottom: '20px' }"
         >
           <a-card hoverable>
-            <ThBarcode
-              id="barcode-3"
-              text="123456789012"
-              :options="{ format: 'EAN13' }"
-            />
+            <ThBarcode text="123456789012" :options="{ format: 'EAN13' }" />
           </a-card>
         </a-col>
         <a-col
@@ -68,7 +62,6 @@
         >
           <a-card hoverable>
             <ThBarcode
-              id="barcode-4"
               text="Barcode"
               :options="{
                 fontSize: 16,
@@ -79,6 +72,34 @@
                 fontOptions: 'bold italic',
               }"
             />
+          </a-card>
+        </a-col>
+        <a-col
+          :xs="24"
+          :sm="24"
+          :md="12"
+          :lg="8"
+          :xl="8"
+          :xxl="6"
+          class="card-item"
+          :style="{ marginBottom: '20px' }"
+        >
+          <a-card hoverable>
+            <ThBarcode :width="300" text="123456" disabled />
+          </a-card>
+        </a-col>
+        <a-col
+          :xs="24"
+          :sm="24"
+          :md="12"
+          :lg="8"
+          :xl="8"
+          :xxl="6"
+          class="card-item"
+          :style="{ marginBottom: '20px' }"
+        >
+          <a-card hoverable>
+            <ThBarcode :text="asyncTitle" />
           </a-card>
         </a-col>
       </a-row>
@@ -92,7 +113,16 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import ThBarcode from '@/components/ThBarcode/index'
+import ThBarcode from '@/components/ThBarcode'
+import { unref } from 'vue'
+
+import { ref } from 'vue'
+const renderText = ref('测试')
+const asyncTitle = ref('')
+
+setTimeout(() => {
+  asyncTitle.value = unref(renderText)
+}, 2000)
 </script>
 <style scoped lang="less">
 .container {

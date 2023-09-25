@@ -16,7 +16,7 @@
             <a-typography-title :heading="6" :style="{ margin: 0 }">
               基础用法
             </a-typography-title>
-            <canvas id="basic-canvas"></canvas>
+            <ThQrcode text="123456789" />
           </a-card>
         </a-col>
         <a-col
@@ -33,7 +33,7 @@
             <a-typography-title :heading="6" :style="{ margin: 0 }">
               Img用法
             </a-typography-title>
-            <img id="img-canvas" />
+            <ThQrcode text="1256789" tag="img" />
           </a-card>
         </a-col>
         <a-col
@@ -50,7 +50,15 @@
             <a-typography-title :heading="6" :style="{ margin: 0 }">
               样式用法
             </a-typography-title>
-            <canvas id="style-canvas"></canvas>
+            <ThQrcode
+              text="123456"
+              :options="{
+                color: {
+                  dark: '#3498db',
+                  light: '#e74c3c',
+                },
+              }"
+            />
           </a-card>
         </a-col>
         <a-col
@@ -65,9 +73,106 @@
         >
           <a-card hoverable>
             <a-typography-title :heading="6" :style="{ margin: 0 }">
-              默认大小
+              点击事件
             </a-typography-title>
-            <canvas id="size-canvas"></canvas>
+            <ThQrcode text="123456" @click="codeClick" />
+          </a-card>
+        </a-col>
+        <a-col
+          :xs="24"
+          :sm="24"
+          :md="12"
+          :lg="8"
+          :xl="8"
+          :xxl="6"
+          class="card-item"
+          :style="{ marginBottom: '20px' }"
+        >
+          <a-card hoverable>
+            <a-typography-title :heading="6" :style="{ margin: 0 }">
+              禁用属性
+            </a-typography-title>
+            <ThQrcode text="123456" disabled @disabled-click="disabledClick" />
+          </a-card>
+        </a-col>
+        <a-col
+          :xs="24"
+          :sm="24"
+          :md="12"
+          :lg="8"
+          :xl="8"
+          :xxl="6"
+          class="card-item"
+          :style="{ marginBottom: '20px' }"
+        >
+          <a-card hoverable>
+            <a-typography-title :heading="6" :style="{ margin: 0 }">
+              内嵌Logo
+            </a-typography-title>
+            <ThQrcode
+              text="123456"
+              logo="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif"
+            />
+          </a-card>
+        </a-col>
+        <a-col
+          :xs="24"
+          :sm="24"
+          :md="12"
+          :lg="8"
+          :xl="8"
+          :xxl="6"
+          class="card-item"
+          :style="{ marginBottom: '20px' }"
+        >
+          <a-card hoverable>
+            <a-typography-title :heading="6" :style="{ margin: 0 }">
+              内嵌Logo属性
+            </a-typography-title>
+            <ThQrcode
+              text="123456"
+              :logo="{
+                src: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+                logoSize: 0.2,
+                borderSize: 0.03,
+                borderRadius: 6,
+                bgColor: '#2ecc71',
+              }"
+            />
+          </a-card>
+        </a-col>
+        <a-col
+          :xs="24"
+          :sm="24"
+          :md="12"
+          :lg="8"
+          :xl="8"
+          :xxl="6"
+          class="card-item"
+          :style="{ marginBottom: '20px' }"
+        >
+          <a-card hoverable>
+            <a-typography-title :heading="6" :style="{ margin: 0 }">
+              异步二维码
+            </a-typography-title>
+            <ThQrcode :text="asyncTitle" />
+          </a-card>
+        </a-col>
+        <a-col
+          :xs="24"
+          :sm="24"
+          :md="12"
+          :lg="8"
+          :xl="8"
+          :xxl="6"
+          class="card-item"
+          :style="{ marginBottom: '20px' }"
+        >
+          <a-card hoverable>
+            <a-typography-title :heading="6" :style="{ margin: 0 }">
+              二维码大小
+            </a-typography-title>
+            <ThQrcode text="123456" :width="150" />
           </a-card>
         </a-col>
       </a-row>
@@ -81,82 +186,24 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import QRCode from 'qrcode'
-import { nextTick } from 'vue'
+import { Message } from '@arco-design/web-vue'
+import ThQrcode from '@/components/ThQrcode'
 
-const generateBasicQR = (text) => {
-  QRCode.toCanvas(
-    document.getElementById('basic-canvas'),
-    text,
-    { scale: 6 },
-    (error) => {
-      if (!error) {
-        console.log('success')
-      } else {
-        console.error(error)
-      }
-    },
-  )
+import { ref, unref, onMounted } from 'vue'
+const renderText = ref('测试')
+const asyncTitle = ref('')
+
+const codeClick = () => {
+  Message.info('点击事件')
 }
 
-const generateImgQR = async (text) => {
-  try {
-    const src = await QRCode.toDataURL(text, { scale: 6 })
-    const img = document.getElementById('img-canvas') as HTMLImageElement
-    img.src = src
-  } catch (err) {
-    console.error(err)
-  }
+const disabledClick = () => {
+  Message.warning('二维码失效')
 }
 
-const generateStyleQR = (text) => {
-  try {
-    const opts = {
-      errorCorrectionLevel: 'H',
-      type: 'image/jpeg',
-      quality: 0.3,
-      scale: 6,
-      color: {
-        dark: '#010599FF',
-        light: '#FFBF60FF',
-      },
-    }
-    QRCode.toCanvas(
-      document.getElementById('style-canvas'),
-      text,
-      opts,
-      (error) => {
-        if (!error) {
-          console.log('success')
-        } else {
-          console.error(error)
-        }
-      },
-    )
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-const generateSizeQR = (text) => {
-  try {
-    QRCode.toCanvas(document.getElementById('size-canvas'), text, (error) => {
-      if (!error) {
-      } else {
-        console.error(error)
-      }
-    })
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-nextTick(() => {
-  generateBasicQR('1234')
-  generateImgQR('1234')
-  generateStyleQR('1234')
-  generateSizeQR('1234')
-})
+setTimeout(() => {
+  asyncTitle.value = unref(renderText)
+}, 2000)
 </script>
 <style scoped lang="less">
 .container {
