@@ -2,31 +2,25 @@
   <div id="contextmenu">
     <slot></slot>
     <Teleport to="body">
-      <Transition
-        @beforeEnter="handleBeforeEnter"
-        @enter="handleEnter"
-        @afterEnter="handleAfterEnter"
+      <div
+        v-if="showMenu"
+        class="context-menu"
+        :style="{
+          left: x + 'px',
+          top: y + 'px',
+        }"
       >
-        <div
-          v-if="showMenu"
-          class="context-menu"
-          :style="{
-            left: x + 'px',
-            top: y + 'px',
-          }"
-        >
-          <div class="menu-list">
-            <div
-              @click="handleClick(item)"
-              class="menu-item"
-              v-for="(item, index) in menu"
-              :key="item.id || item.label || index"
-            >
-              {{ item.label }}
-            </div>
+        <div class="menu-list">
+          <div
+            @click="handleClick(item)"
+            class="menu-item"
+            v-for="(item, index) in menu"
+            :key="item.id || item.label || index"
+          >
+            <span class="label">{{ item.label }}</span>
           </div>
         </div>
-      </Transition>
+      </div>
     </Teleport>
   </div>
 </template>
@@ -61,24 +55,6 @@ const handleClick = (item: ContextMenu) => {
   // 并返回选中的菜单
   emits('select', item)
 }
-
-const handleBeforeEnter = (el: any) => {
-  el.style.height = 0
-}
-
-const handleEnter = (el: any) => {
-  el.style.height = 'auto'
-  const h = el.clientHeight
-  el.style.height = 0
-  requestAnimationFrame(() => {
-    el.style.height = h + 'px'
-    el.style.transition = '.5s'
-  })
-}
-
-const handleAfterEnter = (el: any) => {
-  el.style.transition = 'none'
-}
 </script>
 <style scoped lang="less">
 .context-menu {
@@ -87,13 +63,16 @@ const handleAfterEnter = (el: any) => {
   background: #ffffff;
   box-shadow: 0 4px 10px rgb(var(--gray-2));
   box-sizing: border-box;
+  padding: 8px;
   .menu-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     .menu-item {
+      font-size: 15px;
       padding: 8px 30px;
       cursor: pointer;
+      border-radius: 4px;
       &:hover {
         color: #ffffff;
         background: rgb(var(--primary-6));
