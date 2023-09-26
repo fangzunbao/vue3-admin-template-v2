@@ -206,6 +206,12 @@ export const asyncRoutes = [
         meta: { title: '水印组件', hidden: false, breadcrumb: true },
         component: () => import('@/views/components/watermark/index.vue'),
       },
+      {
+        path: '/component/contextmenu',
+        name: 'ContextMenu',
+        meta: { title: '右键菜单组件', hidden: false, breadcrumb: true },
+        component: () => import('@/views/components/contextmenu/index.vue'),
+      },
     ],
   },
   {
