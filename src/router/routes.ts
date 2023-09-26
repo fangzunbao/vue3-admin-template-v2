@@ -200,6 +200,12 @@ export const asyncRoutes = [
         meta: { title: '范围选择组件', hidden: false, breadcrumb: true },
         component: () => import('@/views/components/range/index.vue'),
       },
+      {
+        path: '/component/watermark',
+        name: 'Watermark',
+        meta: { title: '水印组件', hidden: false, breadcrumb: true },
+        component: () => import('@/views/components/watermark/index.vue'),
+      },
     ],
   },
   {
