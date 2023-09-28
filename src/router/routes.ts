@@ -212,6 +212,12 @@ export const asyncRoutes = [
         meta: { title: '右键菜单组件', hidden: false, breadcrumb: true },
         component: () => import('@/views/components/contextmenu/index.vue'),
       },
+      {
+        path: '/component/countdown',
+        name: 'CountDown',
+        meta: { title: '倒计时组件', hidden: false, breadcrumb: true },
+        component: () => import('@/views/components/countdown/index.vue'),
+      },
     ],
   },
   {
