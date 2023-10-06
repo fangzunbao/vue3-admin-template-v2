@@ -252,4 +252,36 @@ export const asyncRoutes = [
       },
     ],
   },
+  {
+    path: '/file',
+    name: 'File',
+    redirect: '/file/excel',
+    meta: {
+      title: '文件操作',
+      hidden: false,
+      icon: 'icon-database-fill',
+      breadcrumb: true,
+    },
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: '/file/excel',
+        name: 'Excel',
+        meta: { title: 'Excel操作', hidden: false, breadcrumb: true },
+        component: () => import('@/views/file/excel/index.vue'),
+      },
+      {
+        path: '/file/word',
+        name: 'Word',
+        meta: { title: 'Word操作', hidden: false, breadcrumb: true },
+        component: () => import('@/views/file/word/index.vue'),
+      },
+      {
+        path: '/file/pdf',
+        name: 'Pdf',
+        meta: { title: 'Pdf操作', hidden: false, breadcrumb: true },
+        component: () => import('@/views/file/pdf/index.vue'),
+      },
+    ],
+  },
 ]

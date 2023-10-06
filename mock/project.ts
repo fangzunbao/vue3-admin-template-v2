@@ -1,5 +1,4 @@
 import Mock from 'mockjs'
-import qs from 'query-string'
 
 const { Random } = Mock
 

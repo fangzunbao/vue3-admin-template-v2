@@ -21,6 +21,7 @@ enum API {
   PROJECT_LIST = '/mock-api/project/list',
   FORM_CREATE = '/mock-api/form/create',
   WATERFALL_LIST = '/mock-api/images/list',
+  EXCEL_LIST = '/mock-api/file/excel',
 }
 
 //登录接口
@@ -45,3 +46,7 @@ export const reqFormCreate = (data: any): Promise<Result<any>> =>
 // 瀑布流图片获取
 export const reqWaterfallList = (params: any): Promise<Result<any>> =>
   request.get(`${API.WATERFALL_LIST}?${qs.stringify(params)}`)
+
+// 获取Excel数据
+export const reqExcelList = (): Promise<Result<any>> =>
+  request.get(API.EXCEL_LIST)
